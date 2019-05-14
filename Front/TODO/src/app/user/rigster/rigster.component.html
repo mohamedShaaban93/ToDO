@@ -1,0 +1,47 @@
+<section id="signup-section">
+  <div class="dark-overlay">
+    <div class="signup-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <h3 class="card-header bg-primary text-center">Signup</h3>
+              <div class="card-block">
+                <form #signupForm="ngForm" (ngSubmit)="rigster()">
+                  <div class="form-group">
+                    <label for="name">User Name</label>
+                    <input name="name" type="text" class="form-control" id="name" [(ngModel)]="user.name" #name="ngModel" required>
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                      <span *ngIf="name.errors.required" class="error">Name is required</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label >Password</label>
+                    <input name="password" type="password" class="form-control" id="user-name" [(ngModel)]="user.password" #username="ngModel" required>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                      <span *ngIf="username.errors.required" class="error">Username is required</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-password">Confirm Password</label>
+                    <input name="password" type="password" class="form-control" id="user-password" [(ngModel)]="confirm" minlength="6" #password="ngModel" required>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                      <span *ngIf="password.errors.required" class="error">Password is required</span>
+                      <span *ngIf="password.errors.minlength" class="error">Password must be atleast 6 characters</span>
+                    </div>
+                  </div>
+                  <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success btn-lg btn-block">Signup</button>
+                </form>
+                <div *ngIf="error.length > 0" class="alert-danger">
+                  <div *ngFor="let elm of error;">
+                    <h2>{{elm}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

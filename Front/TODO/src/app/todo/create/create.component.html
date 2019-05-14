@@ -1,0 +1,28 @@
+<section id="add-todo-section">
+  <div class="dark-overlay">
+    <div class="section-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <h3 class="card-header bg-primary text-center">Create todo</h3>
+              <div class="card-block">
+                <form #addForm="ngForm" (ngSubmit)="addnew()">
+                  <div class="form-group">
+                    <label >Todo</label>
+                    <input name="todoname" type="text" class="form-control" id="todo-name" [(ngModel)]="newTodo.name" #todoname="ngModel" required>
+                  </div>
+                  <div class="form-group">
+                    <label >Note</label>
+                    <textarea rows="5" name="todo-note" type="text" class="form-control" id="note" [(ngModel)]="newTodo.note"></textarea>
+                  </div>
+                  <button type="submit" [disabled]="!addForm.valid" class="btn btn-success btn-lg btn-block">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

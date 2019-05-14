@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">ToDo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--      if user is logging now-->
+
+  <div *ngIf="auth.isAuthenticated()" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="profile" >Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" routerLink="/TodoList">Lists</a>
+      <a class="nav-item nav-link" routerLink="/Todolist/new">Add One</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </div>
+
+  <!--        if user not logging now-->
+
+  <div *ngIf="!auth.isAuthenticated()" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" routerLink="/rigster">Rigster</a>
+    </div>
+  </div>
+</nav>
+  <router-outlet></router-outlet>
+
+
